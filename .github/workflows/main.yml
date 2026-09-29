@@ -17,18 +17,38 @@ jobs:
       - name: Checkout source
         uses: actions/checkout@v7
 
+      - name: Check Android project
+        run: |
+          echo "Repository files:"
+          find . -maxdepth 3 -type f | sort | head -300
+
       - name: Set up Java
         uses: actions/setup-java@v6
         with:
           distribution: temurin
           java-version: '17'
-          cache: gradle
 
-      - name: Make Gradle executable
-        run: chmod +x ./gradlew
+      - name: Set up Gradle
+        uses: gradle/actions/setup-gradle@v5
+        with:
+          gradle-version: '8.10'
+
+      - name: Check Gradle project
+        run: |
+          if [ -f "settings.gradle" ] || [ -f "settings.gradle.kts" ] || [ -f "build.gradle" ] || [ -f "build.gradle.kts" ]; then
+            echo "Gradle project found."
+          else
+            echo "ERROR: No Gradle/Android project found in repository root."
+            exit 1
+          fi
 
       - name: Build Debug APK
-        run: ./gradlew assembleDebug --stacktrace
+        run: gradle assembleDebug --stacktrace
+
+      - name: Find APK
+        run: |
+          echo "Searching for APK..."
+          find . -type f -name "*.apk" -print
 
       - name: Upload APK
         uses: actions/upload-artifact@v7
