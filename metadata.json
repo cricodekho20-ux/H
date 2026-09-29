@@ -1,0 +1,9 @@
+{
+  "name": "EditPro - Professional Video & Photo Editor",
+  "description": "Professional mobile and desktop video and photo editor with multi-track timeline, keyframes, transitions, chroma key, filters, captions, and 1080p export.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

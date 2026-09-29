@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">EditPro</string>
+    <string name="new_project">+ New Project</string>
+    <string name="import_video">Import Video</string>
+    <string name="import_photo">Import Photo</string>
+    <string name="record_video">Record Video</string>
+    <string name="record_voice">Record Voice</string>
+    <string name="recent_projects">Recent Projects</string>
+    <string name="templates">Templates</string>
+    <string name="settings">Settings</string>
+    <string name="export">Export</string>
+    <string name="save">Save</string>
+    <string name="split">Split</string>
+    <string name="trim">Trim</string>
+    <string name="speed">Speed</string>
+    <string name="animation">Animation</string>
+    <string name="keyframes">Keyframes</string>
+    <string name="effects">Effects</string>
+    <string name="filters">Filters</string>
+    <string name="transitions">Transitions</string>
+    <string name="chroma_key">Chroma Key</string>
+    <string name="audio">Audio</string>
+    <string name="captions">Captions</string>
+</resources>

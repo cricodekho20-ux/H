@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">EditPro</string>
+    <string name="new_project">+ नया प्रोजेक्ट</string>
+    <string name="import_video">वीडियो जोड़ें</string>
+    <string name="import_photo">फोटो जोड़ें</string>
+    <string name="record_video">वीडियो रिकॉर्ड करें</string>
+    <string name="record_voice">आवाज रिकॉर्ड करें</string>
+    <string name="recent_projects">हाल के प्रोजेक्ट</string>
+    <string name="templates">टेम्पलेट्स</string>
+    <string name="settings">सेटिंग्स</string>
+    <string name="export">एक्सपोर्ट</string>
+    <string name="save">सेव</string>
+    <string name="split">कट (स्प्लिट)</string>
+    <string name="trim">ट्रिम</string>
+    <string name="speed">स्पीड</string>
+    <string name="animation">एनिमेशन</string>
+    <string name="keyframes">की-फ्रेम्स</string>
+    <string name="effects">इफ़ेक्ट्स</string>
+    <string name="filters">फ़िल्टर</string>
+    <string name="transitions">ट्रांज़िशन</string>
+    <string name="chroma_key">क्रोमा की</string>
+    <string name="audio">ऑडियो</string>
+    <string name="captions">कैप्शन</string>
+</resources>
