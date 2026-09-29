@@ -1,41 +1,38 @@
-Create a real installable Android APK from the current EDITPRO project.
+name: Build EditPro APK
 
-IMPORTANT:
-I want to install EDITPRO on my Android phone for real testing.
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
 
-Do NOT create a website.
-Do NOT create a WebView app.
-Do NOT create a mockup.
+permissions:
+  contents: read
 
-ACTION:
+jobs:
+  build-apk:
+    runs-on: ubuntu-latest
 
-1. Build the complete current EDITPRO Android project.
-2. Fix all compilation and dependency errors.
-3. Make sure the application has a valid Android applicationId.
-4. Make sure MainActivity is the correct launcher activity.
-5. Create a DEBUG APK that can be installed directly on an Android phone.
-6. Also prepare a RELEASE APK build configuration for future Google Play publishing.
-7. Sign the debug APK appropriately for local installation.
-8. Verify that the APK is actually generated successfully.
-9. Verify that the APK launches EDITPRO, not any demo/test application.
-10. Verify that the APK opens the EDITPRO Home Screen.
-11. Make sure the APK does not require a website or browser.
-12. Core editing features must run inside the Android app.
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v7
 
-The APK should install and open:
+      - name: Set up Java
+        uses: actions/setup-java@v6
+        with:
+          distribution: temurin
+          java-version: '17'
+          cache: gradle
 
-EDITPRO
-→ Home
-→ New Project
-→ Select Video/Photo
-→ Editor
-→ Timeline
-→ Editing
-→ Export
+      - name: Make Gradle executable
+        run: chmod +x ./gradlew
 
-After the build is successful, provide the generated APK as a downloadable/installable artifact.
+      - name: Build Debug APK
+        run: ./gradlew assembleDebug --stacktrace
 
-Do NOT only tell me that the build is complete.
-Actually generate the APK and expose the generated APK through the AppGenie download/install option.
-
-If the build fails, show the exact build error and fix it before attempting the APK again.
+      - name: Upload APK
+        uses: actions/upload-artifact@v7
+        with:
+          name: EditPro-debug-APK
+          path: '**/build/outputs/apk/debug/*.apk'
+          if-no-files-found: error
