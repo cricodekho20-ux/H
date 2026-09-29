@@ -120,3 +120,35 @@ dependencies {
 
 
     // --------------------------------------------------
+    // Room Database
+    // Local project storage
+    // --------------------------------------------------
+
+    implementation("androidx.room:room-runtime:2.6.1")
+    implementation("androidx.room:room-ktx:2.6.1")
+
+    kapt("androidx.room:room-compiler:2.6.1")
+
+
+    // --------------------------------------------------
+    // Kotlin Coroutines
+    // --------------------------------------------------
+
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
+
+
+    // --------------------------------------------------
+    // Coil
+    // Image + video thumbnails
+    // --------------------------------------------------
+
+    implementation("io.coil-kt:coil-compose:2.5.0")
+    implementation("io.coil-kt:coil-video:2.5.0")
+
+
+    // --------------------------------------------------
+    // Core AndroidX
+    // --------------------------------------------------
+
+    implementation("androidx.core:core-ktx:1.12.0")
+}
