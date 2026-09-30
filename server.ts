@@ -158,6 +158,17 @@ Return pure JSON array with format:
     }
   });
 
+  // Project ZIP Download Endpoint
+  app.get('/api/download-zip', (req, res) => {
+    const zipPath = path.resolve(__dirname, 'public', 'editpro-app.zip');
+    res.download(zipPath, 'editpro-app.zip', (err) => {
+      if (err) {
+        console.error('Download error:', err);
+        res.status(500).send('Error downloading zip file');
+      }
+    });
+  });
+
   // Mount Vite or static build
   if (!isProduction) {
     const vite = await createViteServer({

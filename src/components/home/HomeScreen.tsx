@@ -350,12 +350,25 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
           </div>
         </div>
 
-        <button
-          onClick={() => setIsSettingsOpen(true)}
-          className="p-2.5 rounded-2xl bg-slate-900 border border-slate-800 text-slate-300 hover:text-white hover:border-slate-700 transition-colors"
-        >
-          <Settings className="w-5 h-5" />
-        </button>
+        <div className="flex items-center gap-2">
+          {/* Download Full Project ZIP */}
+          <a
+            href="/api/download-zip"
+            download="editpro-app.zip"
+            className="flex items-center gap-1.5 px-3 py-2 rounded-2xl bg-indigo-600/20 border border-indigo-500/40 text-indigo-300 hover:text-white hover:bg-indigo-600 hover:border-indigo-500 transition-all text-xs font-semibold shadow-sm"
+            title="Download complete project ZIP (Web & Android source code)"
+          >
+            <Download className="w-4 h-4 text-indigo-400" />
+            <span className="hidden sm:inline">Download ZIP</span>
+          </a>
+
+          <button
+            onClick={() => setIsSettingsOpen(true)}
+            className="p-2.5 rounded-2xl bg-slate-900 border border-slate-800 text-slate-300 hover:text-white hover:border-slate-700 transition-colors"
+          >
+            <Settings className="w-5 h-5" />
+          </button>
+        </div>
       </header>
 
       {/* Main Content Area */}

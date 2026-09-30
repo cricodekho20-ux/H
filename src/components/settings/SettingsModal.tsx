@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Settings, X, Globe, HardDrive, Trash2, Shield, Info, Check } from 'lucide-react';
+import { Settings, X, Globe, HardDrive, Trash2, Shield, Info, Check, Download, Package } from 'lucide-react';
 import { getLanguage, setLanguage, t, Language } from '../../utils/i18n';
 
 interface SettingsModalProps {
@@ -163,6 +163,30 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({ isOpen, onClose, o
               onChange={(e) => handleToggleAutoSave(e.target.checked)}
               className="w-5 h-5 rounded accent-indigo-600 cursor-pointer"
             />
+          </div>
+
+          {/* Download Complete Project ZIP */}
+          <div className="p-4 bg-slate-950 rounded-2xl border border-indigo-500/30 flex flex-col gap-2.5">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-2">
+                <Package className="w-4 h-4 text-indigo-400" />
+                <span className="font-semibold text-white text-xs">Source Code & Android Project</span>
+              </div>
+              <span className="text-[10px] font-mono text-indigo-300 px-2 py-0.5 rounded bg-indigo-950/60 border border-indigo-500/30">
+                .ZIP Archive
+              </span>
+            </div>
+            <p className="text-[11px] text-slate-400 leading-relaxed">
+              Download the entire EditPro codebase including React web app, offline video engine, and native Android Studio project.
+            </p>
+            <a
+              href="/api/download-zip"
+              download="editpro-app.zip"
+              className="w-full py-2.5 px-4 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-semibold text-xs flex items-center justify-center gap-2 shadow-md transition-colors"
+            >
+              <Download className="w-4 h-4" />
+              <span>Download editpro-app.zip</span>
+            </a>
           </div>
 
           {/* Clear cache */}
